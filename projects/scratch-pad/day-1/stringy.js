@@ -14,7 +14,9 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
+    //return the length of the input using the .length method
+    return string.length; 
+
 
 
     // YOUR CODE ABOVE HERE //
@@ -25,7 +27,8 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //return a string in all lowercase letters
+    return string.toLowerCase(); 
 
 
     // YOUR CODE ABOVE HERE //
@@ -36,7 +39,8 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //return a string in all capital letters
+    return string.toUpperCase(); 
 
 
     // YOUR CODE ABOVE HERE //
@@ -57,6 +61,8 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
+    //replace a space between words in a string with a dash that returns only lower case letters
+    return string.toLowerCase().split(" ").join("-"); 
 
 
 
@@ -77,9 +83,18 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-    
-
+    //force both inputs to lower case 
+    string.toLowerCase();
+    char.toLowerCase(); 
+    //convert a string to an array
+    string.split(" ");
+    //return true if input of char is the first letter of inputted string
+    if (string[0] === char) {
+        return true; 
+    }
+    else {
+        return false; 
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -97,6 +112,18 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    //force both inputs to all lower case letters
+    string.toLowerCase(); 
+    char.toLowerCase(); 
+    //convert string to an array 
+    string.join(" "); 
+    if (string.length - 1 === char) {
+        return true; 
+    } 
+    else {
+        return false; 
+    }
+    
 
 
 
@@ -110,6 +137,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+//combine 2 strings to make one string
+return stringOne.concat(" " + stringTwo); 
 
 
 
