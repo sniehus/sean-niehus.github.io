@@ -20,7 +20,19 @@
  */
 
 function reverseString(input) {
+     
+  
+     
     // YOUR CODE GOES BELOW HERE //
+    //create a string to accept outputs as loop iterates
+    var reverseString = " ";
+    //use a loop to return a string in reverse order
+    for (var i = input.length -1; i = 0; i--){
+      //return the iterations in the created string
+      reverseString = reverseString + input[i]; 
+     
+    }; 
+ 
     
     
     
@@ -38,4 +50,4 @@ if (
 ) {
   // here, export any references you need for tests //
   module.exports.reverseString = reverseString;
-}
+  * Given two input Strings, return the Strings concatenated into one.

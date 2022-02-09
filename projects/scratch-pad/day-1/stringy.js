@@ -86,10 +86,12 @@ function beginsWith(string, char) {
     //force both inputs to lower case 
     string.toLowerCase();
     char.toLowerCase(); 
+    //created an array literal
+    var arr = []; 
     //convert a string to an array
-    string.split(" ");
+    arr = string.split(" ");
     //return true if input of char is the first letter of inputted string
-    if (string[0] === char) {
+    if (arr[0] === char) {
         return true; 
     }
     else {
@@ -112,12 +114,10 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    //force both inputs to all lower case letters
-    string.toLowerCase(); 
-    char.toLowerCase(); 
     //convert string to an array 
-    string.join(" "); 
-    if (string.length - 1 === char) {
+    var arr = []; 
+    arr = string.join(" "); 
+    if (arr.toLowerCase[length - 1] === char.toLowerCase) {
         return true; 
     } 
     else {
@@ -137,8 +137,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-//combine 2 strings to make one string
-return stringOne.concat(" " + stringTwo); 
+    //combine 2 strings to make one string
+        return stringOne = stringOne.concat(stringTwo); 
 
 
 
@@ -158,7 +158,8 @@ return stringOne.concat(" " + stringTwo);
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
+    //combine two strings to make one string with both values
+    return args.join(); 
 
     // YOUR CODE ABOVE HERE //
 }
@@ -174,6 +175,14 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //Given two strings  as inputs, return the longest
+if (stringOne.length > stringTwo.length) {
+    return stringOne 
+}; 
+if (stringTwo.length > stringOne.length) {
+    return stringTwo; 
+}; 
+    
 
 
 
@@ -189,6 +198,11 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //force all letters in a string for both inputs to lowercase
+    return stringOne.toLowerCase; 
+    return stringTwo.toLowerCase; 
+    //initialize variabiables for the first letter in each string
+    var letter1 = stringOne.charAt(0); 
 
 
 
