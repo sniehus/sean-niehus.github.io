@@ -97,6 +97,7 @@ function beginsWith(string, char) {
     else {
         return false; 
     }
+    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -159,7 +160,7 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
     //combine two strings to make one string with both values
-    return args.join(); 
+    return args.join(''); 
 
     // YOUR CODE ABOVE HERE //
 }
@@ -199,10 +200,13 @@ if (stringTwo.length > stringOne.length) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     //force all letters in a string for both inputs to lowercase
-    return stringOne.toLowerCase; 
-    return stringTwo.toLowerCase; 
-    //initialize variabiables for the first letter in each string
-    var letter1 = stringOne.charAt(0); 
+    var stringOne = stringOne.toLowerCase; 
+    var stringTwo = stringTwo.toLowerCase; 
+    //create a coditional chain that compares values alphabetically
+        var letterOne = (stringOne[0]); 
+        var 
+    
+
 
 
 

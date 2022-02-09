@@ -12,7 +12,19 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-
+    var count = 0; 
+    while (count < 101) {
+        if (count % 3 === 0 && count % 5 === 0) {
+            return "FizzBuzz"; 
+        }
+        else if (count % 3 === 0 ) {
+            return "Fizz"; 
+        }
+        else if (count % 5 === 0) {
+            return "Buzz"; 
+        }
+        else return count
+    }
 
 
     // YOUR CODE GOES ABOVE HERE //
