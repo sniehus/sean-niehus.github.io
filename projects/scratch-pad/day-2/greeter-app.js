@@ -35,6 +35,27 @@
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
+    //create an if statement 
+    if (hour > -1 && hour < 12){
+    //return a greeting
+    console.log("Good Morning!"); 
+    }
+        //create an else if statement
+        else if (hour > 11 && hour < 17) {
+        //return a greeting
+         console.log("Good Afternoon!"); 
+        }
+            //create another else if statement    
+            else if (hour > 16 && hour < 22){
+            //return a greeting
+            console.log("Good Evening!"); 
+            }  
+                //create an else state
+                else {
+                //return a greeting 
+                console.log("Good Night!"); 
+                }
+
     
     
     

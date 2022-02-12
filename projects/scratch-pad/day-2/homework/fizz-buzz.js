@@ -11,19 +11,29 @@
  *  d. FINALLY, for numbers which are multiples of both three and five print “FizzBuzz”.
 */
 function fizzBuzz() {
-    // YOUR CODE GOES BELOW HERE //
-    var count = 0; 
-    while (count < 101) {
-        if (count % 3 === 0 && count % 5 === 0) {
-            return "FizzBuzz"; 
+    // YOUR CODE GOES BELOW HERE // 
+    //create for loop
+    for (var i = 1; i < 101; i++) {
+        //write an if statment 
+        if (i % 3 === 0 && i % 5 === 0) {
+         //print a message if true
+         console.log("FizzBuzz"); 
         }
-        else if (count % 3 === 0 ) {
-            return "Fizz"; 
+        //write an else if statement
+        else if (i % 3 === 0 ) {
+        //print a message if true
+            console.log("Fizz"); 
         }
-        else if (count % 5 === 0) {
-            return "Buzz"; 
+        //write an else if statement
+        else if (i % 5 === 0) {
+        //print a message if true
+            console.log("Buzz"); 
         }
-        else return count
+        //write an else statement
+        else {
+        //print the number 
+            console.log(i); 
+        }
     }
 
 

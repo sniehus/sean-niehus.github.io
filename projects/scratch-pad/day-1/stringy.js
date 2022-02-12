@@ -83,15 +83,13 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    //force both inputs to lower case 
-    string.toLowerCase();
-    char.toLowerCase(); 
-    //created an array literal
+    //create an array to put string into
     var arr = []; 
-    //convert a string to an array
-    arr = string.split(" ");
+    
+    
+    
     //return true if input of char is the first letter of inputted string
-    if (arr[0] === char) {
+    if (string.charAt[0] === char) {
         return true; 
     }
     else {
@@ -204,7 +202,7 @@ function sortAscending(stringOne, stringTwo) {
     var stringTwo = stringTwo.toLowerCase; 
     //create a coditional chain that compares values alphabetically
         var letterOne = (stringOne[0]); 
-        var 
+        
     
 
 
