@@ -83,18 +83,18 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    //create an array to put string into
-    var arr = []; 
-    
-    
-    
-    //return true if input of char is the first letter of inputted string
-    if (string.charAt[0] === char) {
-        return true; 
-    }
-    else {
+    //write a condtional statement
+    //write an if statement
+        if (string.toLowerCase()[0] === char.toLowerCase()) {
+        //return result
+            return true; 
+        }
+        //write an else statement
+        else {
+        //return result
         return false; 
-    }
+        }
+    
     
     // YOUR CODE ABOVE HERE //
 }
@@ -113,15 +113,17 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    //convert string to an array 
-    var arr = []; 
-    arr = string.join(" "); 
-    if (arr.toLowerCase[length - 1] === char.toLowerCase) {
-        return true; 
-    } 
-    else {
+    //write a condtional statement
+    //write an if statement
+    if (string.toLowerCase()[string.length - 1] === char.toLowerCase()) {
+        //return result
+            return true; 
+        }
+        //write an else statement
+        else {
+        //return result
         return false; 
-    }
+        }
     
 
 
@@ -197,11 +199,19 @@ if (stringTwo.length > stringOne.length) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    //force all letters in a string for both inputs to lowercase
-    var stringOne = stringOne.toLowerCase; 
-    var stringTwo = stringTwo.toLowerCase; 
     //create a coditional chain that compares values alphabetically
-        var letterOne = (stringOne[0]); 
+        //create an if statement
+        if (stringOne < stringTwo) {
+            return 1; 
+        }
+        //create an else if statement
+        else if (stringOne > stringTwo) {
+            return -1; 
+        } 
+        //create an else statement
+        else {
+            return 0; 
+        }
         
     
 
@@ -221,6 +231,19 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //create a coditional chain that compares values alphabetically
+        //create an if statement
+        if (stringOne > stringTwo) {
+            return 1; 
+        }
+        //create an else if statement
+        else if (stringOne < stringTwo) {
+            return -1; 
+        } 
+        //create an else statement
+        else {
+            return 0; 
+        }
 
 
 

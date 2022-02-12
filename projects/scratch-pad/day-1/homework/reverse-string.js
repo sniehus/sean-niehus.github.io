@@ -31,7 +31,7 @@ function reverseString(input) {
       //return the iterations in the created string
       reverse = reverse + input[i]; 
     }
-      console.log(reverse); 
+      return reverse; 
       
   
     

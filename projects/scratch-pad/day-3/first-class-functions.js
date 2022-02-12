@@ -13,7 +13,20 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    //return a function to test if value input has a greater value
+    return function (value) {
+        //create an if statement
+        if (value > base) {
+        //return result
+        return true; 
+        }
+        //write an else statement
+        else {
+        //return result
+        return false; 
+        }
+
+    }
     
     
     
@@ -26,10 +39,20 @@ function createGreaterThanFilter(base) {
  * base.
  */
 function createLessThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
+    return function (value) {
+        //create an if statement
+        if (value < base) {
+        //return result
+        return true; 
+        }
+        //write an else statement
+        else {
+        //return result
+        return false; 
+        }
+
+    }
+
     
     // YOUR CODE ABOVE HERE //
 }
@@ -41,7 +64,19 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function (string) {
+        //create an if statement
+        if (startsWith.toLowerCase() === string.toLowerCase()[0]) {
+        //return result
+        return true; 
+        }
+        //write an else statement
+        else {
+        //return result
+        return false; 
+        }
+
+    }
     
     
     
@@ -55,10 +90,20 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return function (string) {
+        //create an if statement
+        if (endsWith.toLowerCase() === string.toLowerCase()[string.length - 1]) {
+        //return result
+        return true; 
+        }
+        //write an else statement
+        else {
+        //return result
+        return false; 
+        }
+
+    }
+       
     // YOUR CODE ABOVE HERE //
 }
 

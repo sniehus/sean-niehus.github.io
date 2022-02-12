@@ -133,12 +133,17 @@ function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   //declare an array
   var arr = [];
+    //interate through keys 
     for (var key in object) {
     //push the keys into the array
-    arr.push(key); 
+    arr.push(object[key]); 
     }
-    //return the length of the array
-    return arr.length; 
+    //iterate through array and print values in reverse
+    for (var i = arr.length - 1; i = 0; i--) {
+       console.log (arr[i]);
+    }
+    
+     
   
   
   
