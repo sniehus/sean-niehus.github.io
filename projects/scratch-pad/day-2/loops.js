@@ -140,7 +140,7 @@ function printObjectValuesInReverse(object) {
     }
     //iterate through array and print values in reverse
     for (var i = arr.length - 1; i = 0; i--) {
-       console.log (arr[i]);
+       console.log(arr[i]);
     }
     
      

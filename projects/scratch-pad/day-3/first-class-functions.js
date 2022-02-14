@@ -116,9 +116,16 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    //call the modify function with strings as the arguement
+    var strings = modify(strings); 
+    //declare an array
+    var arr = []; 
+    //iterate though the strings
+    for (var i = 0; i = strings.length -1; i++) {
+        arr = arr + strings[i]; 
+    }
+
+
     
     // YOUR CODE ABOVE HERE //
 }
@@ -134,7 +141,24 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
+    var testResults = [];
+    testResults = test(strings); 
+    //create an array to collect output
+    var results = []; 
+    //itererate through loop
+    for (var i = 0; testResults.length - 1;i ++) {
+    results.push(i); 
+    //write a conditional statement
+    }
+    if (results.includes(false) === true) {
+        //return result
+        return false;
+    }
+    //write an else statement
+    else {
+        //return result
+        return true; 
+    }
     
     
     

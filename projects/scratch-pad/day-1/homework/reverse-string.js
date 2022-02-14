@@ -29,17 +29,10 @@ function reverseString(input) {
     //use a loop to return a string in reverse order
     for (var i = input.length - 1; i >= 0; i--) {
       //return the iterations in the created string
-      reverse = reverse + input[i]; 
+      reverse += input[i]; 
     }
       return reverse; 
-      
-  
-    
-
-    
-    
-    
-    
+     
     // YOUR CODE GOES ABOVE HERE //
 }
 

@@ -23,7 +23,31 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+     //create an array to collect output
+     var arr = []; 
+     var start = start;
+     var end = end; 
+     
+     //create a conditional statent
+     if (start < end) {
+         //create a loop to iterate through values
+         for (var i = start; i <= end; i++){
+         //push values into array
+         arr.push(i); 
+     }
+         return arr; 
+     }  //create an else statement
+         else {
+         //create a loop to iterate through values
+         for (var i = start; i >= end; i--) {
+         //push values into array
+         arr.push(i); 
+         }
+        return arr; 
+     }
+      
+ 
+     
     
     
     

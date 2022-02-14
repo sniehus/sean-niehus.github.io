@@ -96,15 +96,34 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    //determine if the input value is not an object
-    if (typeof value !== "object"){
-        return typeof value; 
-    }
-    //else determine if the value is an array
-    //else determine if the value is null
-    //else determine if value is a instance of Date
-    //else it must be an object
+    // determine if the value is an boolean
+        if (typeof value === "boolean") {
+            return "boolean";
+        }
+        //else  determine if the value is an string
+        else if (typeof value === "string") {
+            return "string"; 
+        }
+       //else determine if value is a number
+        else if (typeof value === "number") {
+            return "number"; 
+        }
+        //else determine if value is a null
+        else if (value === "null") {
+            return "null"; 
+        }
+        //else determine if value is a function
+        else if (typeof value === "function") {
+            return "function"; 
+        }
+        //else determine if value is a array
+        else if (Array.isArray(value) === true) {
+            return "array"; 
+        }
+         //else it must be an object
+        else {
+            return "object"; 
+            }
 
     // YOUR CODE ABOVE HERE //
 }

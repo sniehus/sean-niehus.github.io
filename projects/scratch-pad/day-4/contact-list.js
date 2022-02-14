@@ -35,8 +35,14 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+//return a contact object
+return {
+        id : id, 
+        nameFirst : nameFirst, 
+        nameLast : nameLast, 
+}; 
+}
 
-} 
 
 
 function makeContactList() {
@@ -51,11 +57,19 @@ function makeContactList() {
             return contacts.length;
         }, 
         addContact: function(contacts) {
+            
             //add contact objects to contacts
             return contacts.push(contacts); 
         }, 
         findContact: function(fullName) {
-            return 
+            //iterate through contacts array
+            for (var i = 0; i = contacts.length -1; i++){
+                //make a conditional statement
+                if (fullName === nameFirst + " " + lastName) {
+                    return contacts[i]; 
+                }
+            }
+        
         }
     }
 }
