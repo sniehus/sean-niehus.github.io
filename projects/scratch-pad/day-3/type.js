@@ -108,10 +108,11 @@ function typeOf(value) {
         else if (typeof value === "number") {
             return "number"; 
         }
-        //else determine if value is a null
-        else if (value === "null") {
-            return "null"; 
+        //else determine if value is NAN
+        else if (typeof value === "NaN") {
+            return "number"; 
         }
+    
         //else determine if value is a function
         else if (typeof value === "function") {
             return "function"; 
@@ -120,9 +121,16 @@ function typeOf(value) {
         else if (Array.isArray(value) === true) {
             return "array"; 
         }
-         //else it must be an object
+        else if (typeof value === "object" && value !== null  && value instanceof Date === false) {
+            return object;
+        }
+        //else determine if it is a date
+        else if (typeof value === "object" && value instanceof Date === true) {
+            return "date";
+        }
+         //else it must be null
         else {
-            return "object"; 
+            return "null"; 
             }
 
     // YOUR CODE ABOVE HERE //

@@ -25,7 +25,7 @@ function reverseString(input) {
      
     // YOUR CODE GOES BELOW HERE //
     //create a string to accept outputs as loop iterates
-    var reverse = " ";
+    var reverse = "";
     //use a loop to return a string in reverse order
     for (var i = input.length - 1; i >= 0; i--) {
       //return the iterations in the created string

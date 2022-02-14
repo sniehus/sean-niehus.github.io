@@ -150,7 +150,7 @@ function allStringsPass(strings, test) {
     results.push(i); 
     //write a conditional statement
     }
-    if (results.includes(false) === true) {
+    if (results.indexOf(false) === true) {
         //return result
         return false;
     }
