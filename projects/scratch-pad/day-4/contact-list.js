@@ -40,7 +40,8 @@ return {
         id : id, 
         nameFirst : nameFirst, 
         nameLast : nameLast, 
-}; 
+        
+}
 }
 
 
@@ -59,20 +60,46 @@ function makeContactList() {
         addContact: function(contacts) {
             
             //add contact objects to contacts
-            return contacts.push(contacts); 
+            contacts.push(contacts); //return??
         }, 
         findContact: function(fullName) {
+            
             //iterate through contacts array
-            for (var i = 0; i = contacts.length -1; i++){
+            for (var i = 0; i <= contacts.length - 1; i++){
                 //make a conditional statement
-                if (fullName === nameFirst + " " + lastName) {
+                if (contacts[i][nameFirst] + " " + [nameLast] === fullname) {
+                    //return result
                     return contacts[i]; 
                 }
+                //return result
+                else {
+                return "undefined"; 
+                }
+        }
+    },
+            removeContact: function(contacts) {
+                //iterate through array
+                for (var i = 0; i <= contacts.length - 1; i++) {
+                //make make conditional statement
+                if (nameFirst === nameFirst && nameLast === nameLast) {
+                    //remove contacts that satisfy conditional
+                    contacts.splice(i, 1); 
+                }
+                }
+            },
+
+                printAllContactNames: function(contacts) {
+                //loop through array
+                return contacts.join("\r\n"); 
+                }
+               
+                
+
             }
         
         }
-    }
-}
+     
+
 
 
 
