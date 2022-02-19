@@ -57,27 +57,27 @@ function makeContactList() {
         length: function() {
             return contacts.length;
         }, 
-        addContact: function(contacts) {
+        addContact: function(contact) {
             
             //add contact objects to contacts
-            contacts.push(contacts); //return??
+            contacts.push(contact); 
         }, 
         findContact: function(fullName) {
             
             //iterate through contacts array
             for (var i = 0; i <= contacts.length - 1; i++){
                 //make a conditional statement
-                if (contacts[i][nameFirst] + " " + [nameLast] === fullname) {
+                if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName) {
                     //return result
                     return contacts[i]; 
                 }
                 //return result
                 else {
-                return "undefined"; 
+                return undefined; 
                 }
         }
     },
-            removeContact: function(contacts) {
+            removeContact: function(nameFirst, nameLast) {
                 //iterate through array
                 for (var i = 0; i <= contacts.length - 1; i++) {
                 //make make conditional statement
@@ -88,8 +88,12 @@ function makeContactList() {
                 }
             },
 
-                printAllContactNames: function(contacts) {
+                printAllContactNames: function() {
                 //loop through array
+                for (var i = 0; i <= contacts.length - 1; i++){
+                //return names
+                console.log()
+                }
                 return contacts.join("\r\n"); 
                 }
                
