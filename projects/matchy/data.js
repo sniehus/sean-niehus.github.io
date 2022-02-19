@@ -110,8 +110,9 @@ console.log(animals.length);
 //1.array
 //2.being that it is a list, an array would be best
   var friends = [];
-  function getRandom (min, max) {
-  return friends.push(Math.floor(Math.random() * (max - min) + min)); 
+  function getRandom(max) {
+    return Math.floor(Math.random() * max);
+  
 
  
 
@@ -121,9 +122,14 @@ console.log(animals.length);
    
 //////////////////////////////////////////////////////////////////////
   
-}
-getRandom(animals); 
-console.log(friends);
+};
+console.log(getRandom(3)); 
+
+friends.push(animal[2]);
+console.log(friends); 
+animals.duck["friends"] = friends; 
+
+
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"

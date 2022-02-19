@@ -66,7 +66,7 @@ function printObjectKeys(object) {
   //create a for loop 
   for (var key in object) {
   //print the keys to the console
-  console.log(object[key]); 
+  console.log(key); 
   }
   
   // YOUR CODE ABOVE HERE //

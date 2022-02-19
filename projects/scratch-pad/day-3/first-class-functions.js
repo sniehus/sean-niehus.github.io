@@ -116,15 +116,14 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    var strings = modify(strings); 
-    //declare an array
-    var arr = []; 
-    //iterate though the strings
-    for (var i = 0; i = strings.length - 1; i++) {
-        //push results into array
-        arr.push([i]); 
+    var modArr = [];
+      //iterate though the strings
+    for (var i = 0; i <= strings.length - 1; i++) {
+        //pass results into function and push results into array
+        modArr.push(modify(strings[i])); 
     }
-    return arr; 
+        //return array
+        return modArr;
 
     
     // YOUR CODE ABOVE HERE //
@@ -142,18 +141,22 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     //create an array to collect output
-    var results = [""]; 
+    var results = []; 
     //itererate through loop
-    for (var i = 0; i >= strings.length - 1; i++) {
-    //write a conditional statement
+    for (var i = 0; i <= strings.length - 1; i++) {
+            //pass results into function and push results into array
+            results.push(test(strings[i]));
     }
-    if (results === true) {
-        //return result
-        results += strings[i];
+                //write a conditional statement
+                if (results.includes (false)) {
+                    return false;
+                 } 
+                   //write an else statement
+                   else { return true};
     
-    }
     
-    return results; 
+    
+   
 
     
     // YOUR CODE ABOVE HERE //
