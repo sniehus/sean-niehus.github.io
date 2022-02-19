@@ -89,21 +89,20 @@ function makeContactList() {
             },
 
                 printAllContactNames: function() {
+                var str = "";
                 //loop through array
-                for (var i = 0; i <= contacts.length - 1; i++){
-                //return names
-                console.log()
-                }
-                return contacts.join("\r\n"); 
-                }
-               
+                for (var i = 0; i <= contacts.length - 2; i++){
+                //put results into string
+                str = str + (contacts[i].nameFirst) + " " + (contacts[i].nameLast) + "\n";
+                };
+                str = str + (contacts[contacts.length - 1].nameFirst) + " " + (contacts[contacts.length - 1].nameLast);
                 
-
+                return str;
             }
-        
-        }
+                
+        }      
      
-
+    }
 
 
 
