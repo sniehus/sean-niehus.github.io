@@ -18,7 +18,7 @@ var animal = {};
 //add a key of species and a value
 animal.species = "tiger";
 //add another key using bracket notation
-animal["name"] = "Mr Whiskers"; 
+animal["name"] = "Stripes"; 
 //add a key that is an empty array
 animal.noises = [];
 //log animal to the console

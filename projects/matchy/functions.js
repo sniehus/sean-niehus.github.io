@@ -13,45 +13,92 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //create a fuction
-function search(array, string) {
-    array = animals;
-    //iterate through array
-  for (var i = 0; i <= animals.length -1; i++){
+
+ function search(animals, animal) {
+   
+  //iterate through array
+  for (var i = 0; i <= animals.length - 1; i++){
   //write a conditional
-    if (animals[i].animal.name === string) {
-      //return animal's object
-      return animals[i].animal.name; 
-      }
-      //write an else statement
-      else {
-          return null; 
-      }
+  if (animals[i].name === animal) {
+    //return animal object
+    return animals[i].name; 
     }
+  else {
+
+  }
+    
+    
+      return null;
+
 }
-
-
+} 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //create a function
- function replace(animals, name, replacement){
+ function replace(animals, animal, replacement){
+//iterate through array
+for (var i = 0; i <= animals.length -1; i++){
+  //write a conditional
+  if (animals[i].name = animal.name) {
+    //return replacement replaces current value
+    animals.splice([i], 1, replacement); 
+  }
+  else {
+    return animals;
+  }
+}
+
+
+ }; 
   
 
-}
+
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
+//create a function
+function remove(animals, animal) {
+//interate through array
+for (var i = 0; i <= animals.length -1; i++){
+  //write a conditional
+  if (animals[i].name === animal){
+    return animals.splice(i, 1); 
+  }
+  else {
+    return animals 
+    
+  }
+}
+}; 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
+//create a function
+function add(animals, animal){ 
+  //initialize a boolean
+  var nameMatches = false; 
+//iterate through input array
+for (var i = 0; i <= animals.length - 1; i++){
+//determine if current animal object has
+// a name property that matches input animal's name property
+  if (animals[i].name === animal.name){
+    nameMatches = true; 
+    } 
+  }
+    //determine if there is no match and the input animal
+    //object has a name property with a length > 0 and
+    //the species propety has a length > 0
+    if (nameMatches === false && animal.name.length > 0 && animal.species.length > 0) {
+      //push into array
+      animals.push(animal); 
+    }
+}
+ 
 
 /**
  * You did it! You're all done with Matchy!

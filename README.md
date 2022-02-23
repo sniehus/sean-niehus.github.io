@@ -14,3 +14,9 @@
 1. In your terminal enter => git add -A
 2. In your terminal enter => git commit -m "description in quotes"
 3. In your terminal enter => git push
+
+1. Go to 3 vertically aligned lines => File => Open File
+2. In search bar delete everything except /workspace/
+3. Select lodown below
+4. Select index.js
+
