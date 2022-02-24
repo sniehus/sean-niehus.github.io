@@ -24,9 +24,8 @@ var string = "";
 //iterate through the object
 for (var key in object){
     //add keys to the string;
-    (string += key + " ");
+    string = string + key + " "; 
 }   
-    //return 
     return string; 
 }
 
@@ -42,11 +41,10 @@ function valuesToString(object) {
         //put values into string{
         if (typeof object[key] === string){
         
-            string = string + object[key] + " "; 
+            return string = string + object[key] + " "; 
             }
         }
-            //return
-            return string; 
+             
 
     
 }
@@ -59,7 +57,7 @@ function arrayOrObject(collection) {
     if (Array.isArray(collection) === true) {
         return "array";
     }
-    else if (typeof collection === "object" && value !== null && value instanceof Date === false) {
+    else {
         return "object"; 
     }
 
@@ -108,7 +106,7 @@ function welcomeMessage(object) {
 function profileInfo(object) {
    //itterate through keys
    for (var key in object);  {
-    return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a" + object.species.charAt(0).toUpperCase() + object.species.slice(1); 
+    return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1); 
 
 }
 }
@@ -120,36 +118,33 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
     //loop through object
-    for (var key in object) {
-        //determine if there is a key of noises
-        if (key === noises) {
-            return noises.join(" ");
-        //create an else
+    for (var key in object){
+    if (object.hasOwnProperty('noises')){
+         return object.noises.join(" ");
         }
         else {
-            return "there are no noises"; 
-        }
+            return "there are no noises";
+
+        }    
     }
-
-    }
-
-
+}
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    var arr = string.split();
     //iterate through string
-    for (var i = 0; i <= string.length - 1; i++) {
+    for (var i = 0; i <= arr.length - 1; i++) {
         //determine if word is in string
-        if (string[i] === word) {
+        if (arr[i] === word) {
             return "true"
         }
     }
-        {
             return "false";
-        }
+        
+        
 }
 
 //////////////////////////////////////////////////////////////////////
