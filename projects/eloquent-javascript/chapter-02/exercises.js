@@ -5,14 +5,16 @@
 
 function triangles(number) { 
   //declare a variable that is an empty string
-  var string = "";
-  //iterate for 0 to 6
-  for (var i = number; i <= number + 6; i++){
-  //print the result of each iteration
-  console.log(string = string + "#");  
-}
-};
-
+    let string = "";
+    //iterate 
+    for (var i = 0; i <= number; i++){
+      console.log(string += "#")
+      
+    }
+    
+    
+    
+  }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

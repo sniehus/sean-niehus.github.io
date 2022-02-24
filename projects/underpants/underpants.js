@@ -3,7 +3,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-const { isArrayLike } = require("lodash");
+
 
 var _ = {};
 
@@ -291,6 +291,51 @@ _.map = function(collection, func) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func){
+    //determine if func is undefined
+    if (func === undefined){
+        //determine if the input collection is an array
+        if (Array.isArray(collection)){
+            //iterate through collection
+            for (var i = 0; i < collection.length; i++){
+            if (!collection[i]) {//<--falsy
+                return false; 
+            
+        }
+        else {
+            for (let key in collection){
+
+            if(!collection[key]) {
+                return false; 
+            }
+            }
+        }
+            }
+        }
+    }
+    //else it is defined (been passed in as argument)
+    else{
+        //determine if collection is an array
+        if (Array.isArray(collection)) {
+            //if array, iterate through using for loop
+            for (let i = 0; i < collection.length; i++){
+                if (func(collection[i], i, collection) === false){
+                    return false;
+                }
+            }
+        
+        }
+        //else (not an array)
+        //iterate through using a for in loop
+        for (let key in collection) {
+            if (func(collection[key], (key), collection) === false){
+                return false;
+            }
+        }
+    
+       
+}  return true;
+} 
 
 /** _.some
 * Arguments:
@@ -348,6 +393,13 @@ _.map = function(collection, func) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+_.extend = function(...inputs ){
+    //console.log(inputs) -->>[{a: 1}, {b: 2}, {c:3}]
+    //                            0       1      2
+}
+
+
+//_.extend({a: 1}, {b: 2}, {c: 3})
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
