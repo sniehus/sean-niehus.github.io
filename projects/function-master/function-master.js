@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+
+
 function objectValues(object) {
     //create an array to collect values
     var arr = []
@@ -20,14 +22,15 @@ function objectValues(object) {
 
 function keysToString(object) {
 //create a string to collect keys
-var string = "";
+var array = [];
 //iterate through the object
 for (var key in object){
     //add keys to the string;
-    string = string + key + " "; 
-}   
-    return string; 
+    array.push(key); 
 }
+    return array.join(" ");
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
@@ -35,16 +38,17 @@ for (var key in object){
 
 function valuesToString(object) {
     //create a string
-    var string = "";
+    var array = [];
+
     //iterate through object 
     for (var key in object) {
         //put values into string{
-        if (typeof object[key] === string){
+        if (typeof (object[key]) === "string"){
         
-            return string = string + object[key] + " "; 
+            array.push(object[key]); 
             }
         }
-             
+             return array.join(" ");
 
     
 }
@@ -117,36 +121,56 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+   
+    //create a string to collect noises
+    var result;
+    var arr = [];
     //loop through object
     for (var key in object){
-    if (object.hasOwnProperty('noises')){
-         return object.noises.join(" ");
+        //determine if noises is a key
+        if (object.hasOwnProperty("noises")){
+            //determine if array has values
+            if(object.noises === []){
+                //return
+                result = "there are no noises"
+            }
+            //write an else condition
+             else {
+                //iterate through array
+                for (var i = 0; i <= object.noises.length -1; i++){
+                    //push i into array;
+                    arr.push(object.noises[i]);
+                } 
+            //return array as a string
+            result = arr.join(" ");   
+            }
         }
+    
+        //write an else statement
         else {
-            return "there are no noises";
-
-        }    
+        result = "there are no noises";
+        }       
+        }     
+        return result;  
     }
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-    var arr = string.split();
     //iterate through string
-    for (var i = 0; i <= arr.length - 1; i++) {
-        //determine if word is in string
-        if (arr[i] === word) {
-            return "true"
-        }
-    }
-            return "false";
-        
-        
+    for (var i = 0; i < string.length; i++){
+    //deterine if string includes word
+    if  (string[i] === word){
+        //return true
+        results = "true"
+    }  else {
+    //return false
+    results = "false";
+}       
+}   return results; 
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -162,7 +186,7 @@ function addFriend (name, object) {
 
 function isFriend(name, object) {
     //iterate through objecet
-    for (i = 0; i < object(friends).length; i++) {
+    for (i = 0; i <= object.friends[object.friends.length - 1]; i++) {
         //determine if name is a friend
         if (object.friends[i] === name) {
             //return "true"
@@ -207,8 +231,20 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    //declare an array to push copy into
+    var copyArr = [];
+        //iterate through array
+        for (var i = 0; i < array.length; i ++) {
+            //determine if current element already exist in array
+            if (copyArr.includes(array[i]) === false){
+                //push element into copy array
+                copyArr.push(array[i]);
+            }
+        } 
+            return copyArr;
+        }
    
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

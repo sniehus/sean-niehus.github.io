@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+const { isArrayLike } = require("lodash");
+
 
 
 var _ = {};
@@ -228,32 +230,33 @@ _.each = function(collection, action){
 */
 _.map = function(collection, func) {
     //declare an empty array to collect values
-    let mapped; 
-    mapped = [];
-     //determine if the input collection is an array
+    var mapped =[] 
+    //determine if the input collection is an array
     if (Array.isArray(collection)) {
         //iterate throuth the array using a for loop
         for (var i = 0; i < collection.length; i++){
-            //invoke the input function on the current element, current index and array
-            var result = func(collection[i], i, collection); 
-                //push results into array
-                mapped.push(result);
-             }
-             //else the input collection is an object
-             //iterate through the object using a for in loop
+            //invoke the input function on the current element, current index and array and push function into array
+            mapped.func = func(collection[i], i, collection); 
+                
+                
         }
-    
+            
+             
+    }
+    //else the input collection is an object
     else { 
+        //iterate through the object using a for in loop
         for (var key in collection){
-            var result = func(collection[key], (key), collection); 
-                mapped.push(result); 
+            //invoke the callback function passsing in the current value, 
+            mapped.push(collection[key], (key), collection); 
+                
             }
 
         }
 
     
     
-        return result; 
+        return mapped; 
     
 
 }
@@ -377,6 +380,27 @@ _.every = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+_.reduce = function(array, func, seed){
+    //create an accumulator variable
+    let accumulator; 
+    //determine if seed was not passed in
+    if (seed === undefined) {
+        accumulator = array[0]; 
+        //continue to next element and iterate through the array
+        for (let i = 1; i < array.length; i ++){
+            accumulator = func(accumulator, array[i], i, array);
+    }
+    }
+    //else seed was passed in 
+    else {
+    for (let i = 0; i < array.length; i++){
+        accumulator = func(accumulator, array[i], i, array);
+    }
+
+
+    }
+    return accumulator;
+}
 
 
 /** _.extend

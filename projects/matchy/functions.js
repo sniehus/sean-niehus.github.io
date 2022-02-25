@@ -13,49 +13,43 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //create a fuction
-
- function search(animals, animal) {
-   
-  //iterate through array
-  for (var i = 0; i <= animals.length - 1; i++){
-  //write a conditional
-  if (animals[i].name === animal) {
-    //return animal object
-    return animals[i].name; 
+  function search(animals, animal) {
+    console.log("animal is:" + animal);
+    //iterate through array
+    for (var i = 0; i <= animals.length - 1; i++){
+      //write a conditional
+      if (animals[i].name === animal) {
+        console.log("hit this condition")
+        //return animal object
+        return animals[i]; 
     }
-  else {
-
-  }
+   
     
-    
-      return null;
 
-}
+  } //return null
+  return null;
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //create a function
+
  function replace(animals, animal, replacement){
+   
 //iterate through array
 for (var i = 0; i <= animals.length -1; i++){
   //write a conditional
-  if (animals[i].name = animal.name) {
+  if (animals[i].name === animal) {
     //return replacement replaces current value
-    animals.splice([i], 1, replacement); 
+    animals.splice(i, 1, replacement);
   }
-  else {
-    return animals;
-  }
+  
 }
 
 
- }; 
+ }
   
-
-
-
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
