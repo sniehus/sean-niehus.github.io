@@ -125,52 +125,44 @@ function maybeNoises(object) {
     //create a string to collect noises
     var result;
     var arr = [];
-    //loop through object
-    for (var key in object){
-        //determine if noises is a key
-        if (object.hasOwnProperty("noises")){
-            //determine if array has values
-            if(object.noises === []){
-                //return
-                result = "there are no noises"
-            }
-            //write an else condition
-             else {
+    //determine if object has poeperty
+    if (object.hasOwnProperty("noises")){
+            //determine if array is empty
+            if (object.noises[0] === undefined) {
+               result = "there are no noises"; 
+          }
+           else {
                 //iterate through array
-                for (var i = 0; i <= object.noises.length -1; i++){
+                for (var i = 0; i <= object.noises.length - 1; i++){
                     //push i into array;
-                    arr.push(object.noises[i]);
+                    (arr.push(object.noises[i]));
                 } 
-            //return array as a string
-            result = arr.join(" ");   
-            }
+             result = arr.join(" ");
         }
-    
-        //write an else statement
-        else {
-        result = "there are no noises";
-        }       
-        }     
-        return result;  
     }
+    //return message if no prop exists   
+    else {
+         result = "there are no noises"
+    }
+    return result; 
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-    //iterate through string
-    for (var i = 0; i < string.length; i++){
-    //deterine if string includes word
-    if  (string[i] === word){
-        //return true
-        results = "true"
-    }  else {
+    //create an if statemnt
+    if (string.match(word) !== null){
+        //return 
+        return true
+    }
     //return false
-    results = "false";
-}       
-}   return results; 
-}
+    return false
+
+    }
+    
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -186,14 +178,14 @@ function addFriend (name, object) {
 
 function isFriend(name, object) {
     //iterate through objecet
-    for (i = 0; i <= object.friends[object.friends.length - 1]; i++) {
+    for (i = 0; i <= object.friends.length - 1; i++) {
         //determine if name is a friend
         if (object.friends[i] === name) {
-            //return "true"
+            return true
         }
-        //else return false
-        return "false";
-    }
+     }
+     //else return false
+     return false;
 }
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
