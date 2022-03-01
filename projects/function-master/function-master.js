@@ -177,35 +177,62 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-    //iterate through objecet
-    for (i = 0; i <= object.friends.length - 1; i++) {
-        //determine if name is a friend
-        if (object.friends[i] === name) {
-            return true
-        }
-     }
-     //else return false
-     return false;
-}
+    //determine if input object does not have the property of friends
+    if (!object.hasOwnProperty("friends")){
+        return false;
+    }
+    else if (object.friends[0] !== undefined){
+        //iterate through array
+        for (i = 0; i <= object.friends.length - 1; i++){
+            //determine if array includes name input
+            if (object.friends[i] === name){
+                //return true
+                return true;
+             }
+            }  
+                
+        
+            return false;      
+            }
+        
+    
+    }   
+
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
+function nonFriends(name, array) {  
+    //iterate through array
+    for (var i = 0; i <= array.length - 1; i ++){
+            //determine if name array index is on friends list
+          
+        }
 
 }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-    //iterate through object
-    for (var key in object){
-        //add or change property
-        return object.key = value; 
-        }
-    }
+        var key1 = key;
+        var obj1 = object;
+        //iterate through object
+        //for (var key in object){
+            //determine if key exist in object
+            if (obj1.hasOwnProperty(key1)){
+                obj1.key1 = value;
+            }
+                //else add new property to object;
+                else {
+                obj1[key1] = value; 
+                }
+        }   
+
+
     
 
 
@@ -213,9 +240,15 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//delete object.key
 function removeProperties(object, array) {
-
+    //iterate throuth array
+    for (var i = 0; i <= array.length -1; i++){
+        //determine if object has a key that is an element in input array
+        if (object.hasOwnProperty(array[i])) {
+            delete object.array[i];
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
