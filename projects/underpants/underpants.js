@@ -3,7 +3,6 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-const { isArrayLike } = require("lodash");
 
 
 
@@ -27,7 +26,7 @@ var _ = {};
 
 _.identity = function(value) {
     return value;
-}
+};
 
 /** _.typeOf
 * Arguments:
@@ -48,7 +47,7 @@ _.identity = function(value) {
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+//previous project??
 _.typeOf = function(value){
 
 } 
@@ -131,8 +130,17 @@ _.indexOf = function(array, value){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 _.each = function(collection, action){
+  if (Array.isArray(collection)) {
+    for (var i = 0; i < collection.length; i++){
+        action(collection[i], i, collection);
+    }
+  }  else {
+       for (var key in collection){
+        action(collection[key], key, collection);    
+       } 
+    }
+  }
 
-}
 
 /** _.each
 * Arguments:

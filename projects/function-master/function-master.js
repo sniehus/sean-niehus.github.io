@@ -202,13 +202,21 @@ function isFriend(name, object) {
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {  
-    //iterate through array
-    for (var i = 0; i <= array.length - 1; i ++){
-            //determine if name array index is on friends list
-          
+function nonFriends(name, object) { 
+    //declare variable to collect non friends
+    var array = []
+    //iterate through object
+    for (var friends in object) {
+        //iterate through friends key
+            for (var i = 0; i = friends.length - 1; i++){
+                //determine if index matches key 
+                if (friends[i] in object === false && friends[i] !== name) 
+                    //push into array
+                    array.push(friends[i]);
+            }
         }
-
+    //return array
+    return array
 }
 
 
@@ -218,23 +226,14 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-        var key1 = key;
-        var obj1 = object;
-        //iterate through object
-        //for (var key in object){
-            //determine if key exist in object
-            if (obj1.hasOwnProperty(key1)){
-                obj1.key1 = value;
-            }
-                //else add new property to object;
-                else {
-                obj1[key1] = value; 
-                }
-        }   
+    //add or update object 
+    object[key]= value
+        //return object
+        return object; 
 
 
     
-
+}
 
 
 //////////////////////////////////////////////////////////////////////
@@ -245,8 +244,8 @@ function removeProperties(object, array) {
     //iterate throuth array
     for (var i = 0; i <= array.length -1; i++){
         //determine if object has a key that is an element in input array
-        if (object.hasOwnProperty(array[i])) {
-            delete object.array[i];
+        if (array[i] in object === true) {
+            delete object[array[i]];
         }
     }
 }

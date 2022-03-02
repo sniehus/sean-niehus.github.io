@@ -2,7 +2,16 @@
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function min() {
+function min(x,y) {
+  //determine if x is greater than y
+  if (x > y){
+    //return y
+    return y;
+  }
+      //else x is minimum
+      else {
+      return x; 
+  }
 
 }
 
@@ -10,15 +19,33 @@ function min() {
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function isEven() {
-
+function isEven(x) {
+//determine in input number is even
+if (x % 2 === 0){
+  //return true
+  return true;
+}
+    //else number is false
+    return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string, char) {
+  //create an array to push matches into
+  var array = [];
+    //iterate through string
+    for (var i = 0; i <= string.length - 1; i++){
+      //write a conditional statement
+      if (string[i] === char){
+        //push into array
+        array.push(string[i]);
+      }
+    }
+        //return array length
+        return array.length;
 
 }
 
@@ -26,9 +53,21 @@ function countChars() {
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
+function countBs(string) {
+  var array = [];
+  //iterate through string
+  for (var i = 0; i <= string.length - 1; i++){
+    //write a conditional statement
+    if (string[i] === "B"){
+      //push into array
+      array.push(string[i]);
+    }
+  }
+      //return array length
+      return array.length;
 
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
