@@ -425,7 +425,15 @@ return mapped;
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+_.pluck = function(array, property){
+    //call map function
+    let result = _.map(array, function(property){
+        for (var key in object){
+            arrray.push(object[key]); 
+        } return mapped;
+    })
+    return result;
+}
 
 /** _.every
 * Arguments:
@@ -514,6 +522,51 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(collection, func){
+//determine if func is undefined
+if (func === undefined){
+    //determine if the input collection is an array
+    if (Array.isArray(collection)){
+        //iterate through collection
+        for (var i = 0; i < collection.length; i++){
+        if (collection[i]) {//<--falsy
+            return true; 
+        
+    }
+    else {
+        for (let key in collection){
+
+        if(collection[key]) {
+            return true; 
+        }
+        }
+    }
+        }
+    }
+}
+//else it is defined (been passed in as argument)
+else{
+    //determine if collection is an array
+    if (Array.isArray(collection)) {
+        //if array, iterate through using for loop
+        for (let i = 0; i < collection.length; i++){
+            if (func(collection[i], i, collection) === true){
+                return true;
+            }
+        }
+    
+    }
+    //else (not an array)
+    //iterate through using a for in loop
+    for (let key in collection) {
+        if (func(collection[key], (key), collection) === true){
+            return true;
+        }
+    }
+
+   
+}  return false;
+} 
 
 
 /** _.reduce
@@ -536,7 +589,7 @@ _.every = function(collection, func){
 */
 _.reduce = function(array, func, seed){
     //create an accumulator variable
-    let accumulator; 
+    let accumulator;
     //determine if seed was not passed in
     if (seed === undefined) {
         accumulator = array[0]; 
@@ -547,6 +600,7 @@ _.reduce = function(array, func, seed){
     }
     //else seed was passed in 
     else {
+    accumulator = seed;
     for (let i = 0; i < array.length; i++){
         accumulator = func(accumulator, array[i], i, array);
     }

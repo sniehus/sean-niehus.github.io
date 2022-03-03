@@ -203,18 +203,22 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, object) { 
+    var people = ["Jimmy", "Bob", "Liza", "Sara"];
     //declare variable to collect non friends
     var array = []
     //iterate through object
-    for (var friends in object) {
+    for (var key in object) {
         //iterate through friends key
-            for (var i = 0; i = friends.length - 1; i++){
+            if(key === friends){
+            for (var i = 0; i > friends; i++){
                 //determine if index matches key 
-                if (friends[i] in object === false && friends[i] !== name) 
+                if (people.includes(friends[i]) && friends[i] !== name) {
                     //push into array
                     array.push(friends[i]);
+                }       
             }
         }
+    }
     //return array
     return array
 }
