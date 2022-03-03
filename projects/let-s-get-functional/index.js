@@ -26,10 +26,16 @@ var maleCount = function(array) {
         return customer.gender === "male"; 
 
     }); //==>[{male object, male object, male object}]
-
+return males.length;
 };
 
-var femaleCount;
+var femaleCount = function(array) {
+    var females = _.reduce(array, function(customer){
+        return customer.gender === "female"; 
+
+    }, 0);
+return females;
+};
 
 var oldestCustomer;
 
