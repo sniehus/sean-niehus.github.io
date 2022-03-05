@@ -426,15 +426,21 @@ return mapped;
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 _.pluck = function(array, property){
-    //call map function
-    let result = _.map(array, function(property){
-        for (var key in object){
-            arrray.push(object[key]); 
-        } return mapped;
-    })
-    return result;
+    let resultArray = [];
+   //call map function
+    let result = _.map(array, function(object){
+        //determine if property exist in input object
+         if (object.hasOwnProperty(property)){
+            resultArray.push(object[property]);
+         }
+        });
+       
+    return resultArray;
 }
 
+
+
+    
 /** _.every
 * Arguments:
 *   1) A collection
@@ -625,13 +631,10 @@ _.reduce = function(array, func, seed){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(...inputs ){
-    //console.log(inputs) -->>[{a: 1}, {b: 2}, {c:3}]
-    //                            0       1      2
-}
-
-
-//_.extend({a: 1}, {b: 2}, {c: 3})
+_.extend = function(object1, ...object2 ){
+    var updateObject = Object.assign(object1, ...object2);
+    return updateObject;
+}   
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

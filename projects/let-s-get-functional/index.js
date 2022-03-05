@@ -16,7 +16,7 @@ var _ = require('underbar');
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./sean-niehus.github.io/projects/let-s-get-functional
+ *   npm start --prefix ./sean-niehus.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
@@ -28,30 +28,54 @@ var maleCount = function(array) {
     }); //==>[{male object, male object, male object}]
 return males.length;
 };
+var femaleCount; //**Input**: `Array`**Output**: `Number` **Constraints**: use `reduce`
 
-var femaleCount = function(array) {
-    var females = _.reduce(array, function(customer){
-        return customer.gender === "female"; 
-
-    }, 0);
-return females;
+var oldestCustomer = function(array) {//Find the oldest's name/input: array/output: string
+    var oldest = _.each function(customers){
+        if (customers.age > age[0]) {
+            age[0] === customers.age;
+        }
+    })
+    return oldest;
 };
+/**
+ * function characterCount(script) {
+  return script.ranges.reduce((count, [from, to]) => {
+    return count + (to - from);
+  }, 0);
+}
 
-var oldestCustomer;
+console.log(SCRIPTS.reduce((a, b) => {
+  return characterCount(a) < characterCount(b) ? b : a;
+}));
+// → {name: "Han", …}
+ */
 
-var youngestCustomer;
+var youngestCustomer;//same as oldest
 
-var averageBalance;
+var averageBalance = function(array)//i: array /o: number
+/**
+ * function average(array) {
+  return array.reduce((a, b) => a + b) / array.length;
+}
 
-var firstLetterCount;
-
+console.log(Math.round(average(
+  SCRIPTS.filter(s => s.living).map(s => s.year))));
+// → 1165
+console.log(Math.round(average(
+  SCRIPTS.filter(s => !s.living).map(s => s.year))));
+// → 204
+ *  
+ */
+//**Objective**: Find how many customer's names begin with a given letter
+//input: array & letter/o: number
 var friendFirstLetterCount;
 
-var friendsCount;
-
-var topThreeTags;
-
-var genderCount;
+var friendsCount;//Find the customers' names that have a given customer's name in their friends list
+//input: array and name/output: array
+var topThreeTags;//**Objective**: Find the three most common tags among all customers' associated tags
+//nput: array /output: array /flatten, sort method
+var genderCount;//create a summary of genders in an object, given the input array/use reduce
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
