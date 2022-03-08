@@ -5,11 +5,30 @@
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
 var factorial = function(n) {
-};
+  //base
+  if (n === 1 || n === 0){
+    return 1; 
+    }
+  else if (n < 0){
+    return null; 
+  }
 
+  //recursion
+  return n * factorial(n - 1);
+};
+/**
+factorial(4) >>return 4*3*2*1
+ */
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
+  //base 
+  if(array.length === 0){
+    return 0; 
+  }
+
+  //recursion
+  return array[0] + sum(array.slice(1)); 
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -19,17 +38,67 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  if (n < 1){
+   n = n * - 1;
+  }
+  //base
+    if (n === 1){
+      return false; 
+    }
+    if (n === 0){
+      return true; 
+    }
+  //recursion
+    return isEven(n - 2); 
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  //base
+  if (n > 1 || n < -1){
+    return 0;
+  }
+  else if (n > 1){
+  
+  //recursion
+  return (n - 1) + sumBelow(n - 2);
+  }
+  //base
+  else {
+    if (n === 0 ){
+      return 0; 
+    }
+  //recursion
+    return (n + 1) + sumBelow(n + 2);
+  }
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, arr = []) {
+  if ((x + 1) === y || (y + 1) === x || x === y){
+    return arr;
+  }
+  if (x < y ){
+  //base
+  if (y === (x + 2)){
+    return arr
+  }
+  //recurse
+    arr.push(x + 1);
+    return range((x + 2), y); 
+  }
+  else {
+  //base
+  if (y + 2 === x)
+  return arr;
+  }
+  //recursion
+  arr.push(x + 1); 
+  return range (x, (y + 2), arr); 
+  
 };
 
 // 7. Compute the exponent of a number.
@@ -49,7 +118,16 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
-};
+  //base
+  if (string.length === 1){
+  return string[i]; 
+  }
+//recursion
+  "string[string.length - 1]"
+  return(string.slice(1));
+  };
+
+
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
