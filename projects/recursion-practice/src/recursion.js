@@ -98,26 +98,22 @@ var range = function(x, y, arr = []) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp, arr=[base]) {
-  //base
-  if (exp === 0){
-    return 1; 
+var exponent = function(base, exponent) { 
+  if (exponent === 0) {
+    return 1;
+  } 
+  if (exponent === 1){
+    return base;
   }
-  
-  if (exp < 0){
-    exp = exp * - 1;
-    arr[0] = arr[0] / base; 
-    return exponent(base, exp + 1, arr); 
+  if (exponent > 1) {
+    return base * exponent(base, exponent - 1);
   }
-  //recurse
-   if (exp = 1){
-     return arr[0]; 
-   }
-   else if ( exp > 1){
-   arr[0] = arr[0] * base;
-   return exponent(base, exp - 1, arr); 
+  if (exponent < 1) {
+    exponent = exponent * -1;
+    return base / exponent(base, exponent + 1);
   }
-};//base 3, exponent 4 >>
+}
+//base 3, exponent 4 >>
   //base 9, expoenet 3 
   //base 27, eponent 2
   //base 81, exponent 1
@@ -371,6 +367,18 @@ var capitalizeWords = function(input, output=[]) {
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
+var capitalizeFirst = function(array, result=[]) {
+  //base
+  if (array.length === 0){
+    return result; 
+  }
+  else {
+  //recurse
+  result.push(array[0].charAt(0).toUpperCase() + array[0].slice(1));
+  }
+  return capitalizeFirst(array.slice(1), result); 
+  
+};
 
 
 // 28. **not requiredReturn the sum of all even numbers in an object containing nested objects.
@@ -434,7 +442,32 @@ var minimizeZeroes = function(array, output=[]) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, output = [], count = 1) {
+  console.log(count);
+  //base
+  //return if array.length = 0
+  if (array.length === 0){
+    return output;
+  }
+  //recursion
+  //determine if sign is correct
+  if (count % 2 !== 0 && array[0] < 0){
+    //count is odd and value is even?
+    output.push(array[0] * -1)
+    count = count + 1;
+    return alternateSign(array.slice(1), output, count); 
+  }
+  //determine if count is even and value is odd
+  if (count % 2 === 0 && array[0] > 0){
+    output.push(array[0] * -1)
+    count = count + 1;
+    return alternateSign(array.slice(1), output, count); 
+  }
+  else {
+    output.push(array[0]);
+    count = count + 1;
+    return alternateSign(array.slice(1), output, count);
+  }
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.

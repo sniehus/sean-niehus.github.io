@@ -49,10 +49,11 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(num) {
-  var board = "";
 
-for (var x = 0; y < num; y++) {
-  for (var y = 0; x < num; x++) {
+var board = "";
+
+for (var x = 0; x <= num; x++) {
+  for (var y = 0; y <= num; y++) {
     if (num % 2 == 0)
       board += " ";
     else
@@ -61,7 +62,7 @@ for (var x = 0; y < num; y++) {
   board += "\n";
 
 }
-console.log(board);
+return board;
       
 };
 
