@@ -28,54 +28,40 @@ var maleCount = function(array) {
     }); //==>[{male object, male object, male object}]
 return males.length;
 };
+
+
 var femaleCount = function(array){
-    var females =  _.filter(customer, function(customer){
-        return customer.gender === "female"
-    });  
-         _.reduce(customer.gender)(function (previousValue, currentValue){
-        return previousValue + currentValue;
-    }, 0); 
-    return females; 
+    var females =  _.filter(array, function(count, customer){
+        customer.gender === "female"
+        count += 1; 
+    }, 0);  
+      return females; 
 };
-    
+ var oldestCustomer = function(array) {
+      var oldest = array.reduce(function (prev, curr) {
+        return prev.age > curr.age ? prev : curr
+      })
+        return oldest.name
+ };
    
-var oldestCustomer = function(array){
-    //create an output array
-    var results = [{age : 0}];
-    //use the .each function
-    var oldest = _.filter(array, function(customer){
-        //determine if current index has age greater than the previous
-        if (customer.hasOwnProperty(age) && (customer.age > array[array.length - 1].age)) {
-            //if so, push into array
-            results.push(customer); 
-        }
-    });
-    //return the last objects age value
-    oldest = results[results.length - 1];
-    return (oldest["name"]); 
-};
+ var youngestCustomer = function(array) {
+      var youngest = array.reduce(function (prev, curr) {
+        return prev.age > curr.age ? curr : prev
+      })
+        return youngest.name
+ };
+
+    
     
 
-var youngestCustomer = function(array){
-    //create an output array
-    var results = [{age : 200}];
-    //use the .each function
-    var youngest = _.each(array, function(array){
-        //determine if current index has age greater than the previous
-        if (array.age < array[array.length - 1](age)) {
-            //if so, push into array
-            results.push(object); 
-        }
-    });
-    //return the last objects age value
-    youngest = results[results.length - 1]; 
-    return youngest.name;
-}
+
+   
+
 var averageBalance = function(array){
     var balance = _.reduce(array, function(sum, customer){
         return sum + customer.balance; 
         }, 0);
-    return balance / array.length;
+    return (balance / array.length);
 }
 
 
@@ -83,7 +69,7 @@ var firstLetterCount = function(array){
     //create an output array
     var matches = _.filter(array, function(customer, letter){
     //set condition for value to be return true
-    return customer.name[0] === letter
+    return customer.name.charAt(0) === letter
     });
     return matches.length;
 };
@@ -101,7 +87,22 @@ var topThreeTags = function(){
 
 };//**Objective**: Find the three most common tags among all customers' associated tags
 
-var genderCount = function(){
+var genderCount = function(array){
+    var genders = _.reduce(object, function(obj, customer){
+  //determine if the current customer gender exists as 
+  //a key in the obj, if true, add the current name to the property's array
+  if (obj[customer.gender]){
+    obj[customer.gender] += 1;
+  }
+  //else it doesn't exist
+  else {
+  //create the key, initialize as an empty object and add the current name 
+    obj[customer.gender] = 1;
+    
+  }
+  return genders; 
+  
+}, {});
 
 };
 

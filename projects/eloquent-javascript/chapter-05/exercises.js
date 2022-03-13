@@ -2,16 +2,36 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
-
+function flatten(array) {
+  //create an output array
+  let result = array.reduce(function(previous, current){
+    return previous.concat(current)
+  }, [])
+return result;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
+/*
+Write a higher-order function loop that provides something like a for loop statement.
+ It takes a value, a test function, an update function, and a body function.
+  Each iteration, it first runs the test function on the current loop value and stops if that returns false. 
+  Then it calls the body function, 
+giving it the current value. 
+Finally, it calls the update function to create a new value and starts from the beginning.
 
-function loop() {
 
+ */
+function loop(value) {
+var test = function(value){
+  value < 4; 
+}
+for (var i = 0; test === true; i++){
+  function body([i]){}; 
+
+}
+return function update(){};
 }
 
 // /////////////////////////////////////////////////////////////////////////////

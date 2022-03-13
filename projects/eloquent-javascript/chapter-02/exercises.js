@@ -49,22 +49,21 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(num) {
-  var string = "";
-//iterate from 1 to input number
-for (var i = 1; i <= num; i++){
-  //determine if i is even
-  if (i % 2 === 0){
-    //create pattern for even iterations
-    string += "# # # # \n"
+  var board = "";
+
+for (var x = 0; y < num; y++) {
+  for (var y = 0; x < num; x++) {
+    if (num % 2 == 0)
+      board += " ";
+    else
+      board += "#";
   }
-  //else it is odd
-  else {
-    string += " # # # #\n"
-  }
-    
- 
-}console.log(string.split("\n"));
+  board += "\n";
+
 }
+console.log(board);
+      
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
