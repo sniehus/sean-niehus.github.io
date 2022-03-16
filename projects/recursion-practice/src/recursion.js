@@ -98,21 +98,21 @@ var range = function(x, y, arr = []) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exponent) { 
-  if (exponent === 0) {
+var exponent = function(base, exp) { 
+  if (exp === 0) {
     return 1;
   } 
-  if (exponent === 1){
+  if (exp === 1){
     return base;
   }
-  if (exponent > 1) {
-    return base * exponent(base, exponent - 1);
+  if (exp > 1) {
+    return base * exponent(base, exp - 1);
   }
-  if (exponent < 1) {
-    exponent = exponent * -1;
-    return base / exponent(base, exponent + 1);
+  if (exp < 1) {
+    exp = exp * -1;
+    return base / exponent(base, exp + 1);
   }
-}
+};
 //base 3, exponent 4 >>
   //base 9, expoenet 3 
   //base 27, eponent 2
@@ -122,16 +122,26 @@ var exponent = function(base, exponent) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n, x = 1) {
-  //base 
-  if (x > n){
-    return false; 
-  }
-  if (x = n){
-    return true
-  }
-   return x * powerOfTwo(n, x + 1);
+var powerOfTwo = function(n , exp = 1) {
 
+  //base 
+  if (n < exp){
+    return false;
+  }
+  if (n <= 0){
+    return false;
+  }
+  if (n === 1){
+    return true;
+  }
+  else  if (n > 1) {
+    if (2 ** exp === n) {
+      return true;
+    }
+  else {
+    return powerOfTwo(n, exp + 1); 
+  }
+  }
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -298,9 +308,23 @@ var countOccurrence = function(array, inputValue, count = 0) {
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var rMap = function(array, callback, output=[]){
+  //base
+   if (array.length === output.length){
+    return output; 
+   }
+   else{
+    output.push(callback) 
+    return rMap(array, callback, output);
+    
+   }
+   
+}; 
+    
+   
   
-};
+  
+
 
 // 21.**not required Write a function that counts the number of times a key occurs in an object.
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
@@ -340,12 +364,14 @@ var fibonacci = function(n) {
   if (num < 0){
     return null; 
   }
-  if (num <= arr.length){
-    return arr[num - 1]; 
+  if (num === 0) {
+    return arr[0];
   }
-  if (num === 0){
-    return 0;
+  
+  if (num < arr.length){
+    return arr[arr.length - 1]; 
   }
+  
   //recurse
   else {
     arr.push(arr[arr.length - 1] + arr[arr.length - 2])
@@ -400,7 +426,24 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj = {}) {
+  //base
+  console.log(obj);
+  console.log(str);
+  if (str.length === 0){
+    return obj;
+  }
+  //recurse
+  if (obj.hasOwnProperty(str[0])){
+    var char = str[0];
+    obj[char] += 1;
+    return letterTally(str.slice(1), obj);
+  }
+  if (!obj.hasOwnProperty(str[0])){
+    var char = str[0];
+    obj[char] = 1;
+    return letterTally(str.slice(1), obj)
+  }
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -409,10 +452,11 @@ var letterTally = function(str, obj) {
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 var compress = function(list, array=[]) {
+  
   if (list.length === 0){
     return array;
   }
-    if (array.includes(list[0]) === false){
+    if (list[0] !== array[array.length - 1]){
       array.push(list[0]);
       
     }return compress(list.splice(1), array);
@@ -473,24 +517,34 @@ var alternateSign = function(array, output = [], count = 1) {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str, count = 0) {
+var numToText = function(str, string = ""){ {
   var nums = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-  var arr = str.split();
   //base
-  if (count = arr.length){
-    return ; 
+  //return when str length is 0
+  if (str.length === 0){
+    return string; 
   }
   //recursive
-    if (typeof arr[0] === "number"){
-      arr[0] = nums[arr[0]]
-      count = count + 1;
-    return numToText(array.slice(1)); 
-
-
+  //determine if current index is a number
+    if (typeof str[0] === "number"){
+      //if so replace with element from nums array
+      str =+ nums[str[0]];
+      //recurse function
+      return numToText(str.slice(1), string);
     }
+    //else it's not a number
+    else {
+      str += str[0]; 
+      //recurse function
+      return numToText(str.slice(0), string)
+    }
+    }
+
+
+    }; 
   
   
-};
+
 
 // *** EXTRA CREDIT ***
 

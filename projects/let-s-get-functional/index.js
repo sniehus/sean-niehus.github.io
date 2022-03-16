@@ -16,7 +16,7 @@ var _ = require('underbar');
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *   
+ *   npm start --prefix ./sean-niehus.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
@@ -30,13 +30,18 @@ return males.length;
 };
 
 
-var femaleCount = function(array){
-    var females =  _.filter(array, function(count, customer){
-        customer.gender === "female"
-        count += 1; 
-    }, 0);  
-      return females; 
-};
+var femaleCount = function(array) {
+  var females = customers.reduce(function(count, current){
+    console.log(count);
+    if (current.hasOwnProperty("gender") && current.gender === "female"){
+      count = count + 1; 
+     }
+     return count;
+     
+   }, 0)
+    return females; 
+  }
+
  var oldestCustomer = function(array) {
       var oldest = array.reduce(function (prev, curr) {
         return prev.age > curr.age ? prev : curr
@@ -58,10 +63,15 @@ var femaleCount = function(array){
    
 
 var averageBalance = function(array){
-    var balance = _.reduce(array, function(sum, customer){
-        return sum + customer.balance; 
-        }, 0);
-    return (balance / array.length);
+    var balance = reduce.filter(function(sum, current){
+      if (current.hasOwnProperty("balance")){ 
+      sum.push(sum + current[balance]); 
+      }
+    }, []);
+    return balance[balance.length - 1] / balance.length; 
+     
+
+    
 }
 
 

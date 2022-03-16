@@ -73,22 +73,32 @@ function reverseArrayInPlace(array) {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList(...array) {
-  //create an output object; 
-  let list = {};
-   //iterate through array
-   for(var i = 0; i < array.length; i++){
-     let key = i + 1;
-     list[key] = array[i];
-   }
-  return list; 
+function arrayToList(array) {
+ //create a variable called rest and give it a value of null
+ let rest = null; 
+ //iterate through array in reverse
+ for(var i = array.length - 1; i >= 0; i--){
+   //re-assign rest to a vlaue property equal to array[i] and a rest property
+   //equal to the current value of rest
+   rest = {value: array[i], rest}; 
+ }
+ return rest; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(obj, output=[]) {
+  //base
+  if (obj.rest === null){
+  output.push(obj.value); 
+  return output; 
+  }
+
+  ///recursion
+  output.push(obj["value"])
+  return listToArray(obj.rest, output); 
 
 }
 
@@ -96,16 +106,28 @@ function listToArray() {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(array, value) {
+  let output = [];
+  for (var i = 0; i < array.length; i++){
+    output.unshift(array[i][value]);
+  }
+  return output; 
+ 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(array, index ) {
+for (var i = 0; i < array.length; i++){
+  if (array[i] === index){
+    return array[i]; 
+  }
+  else {
+    return undefined; 
+  }
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
