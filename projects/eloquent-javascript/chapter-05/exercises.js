@@ -20,35 +20,51 @@ Write a higher-order function loop that provides something like a for loop state
   Then it calls the body function, 
 giving it the current value. 
 Finally, it calls the update function to create a new value and starts from the beginning.
-
-
- */
-function loop(value) {
-var test = function(value){
-  value < 4; 
-}
-for (var i = 0; test === true; i++){
-  function body([i]){}; 
-
-}
-return function update(){};
+*/
+function loop(){
+  
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
+////
+function every(array) {
+  //iterate through the array
+  for (var i = 0; i < array.length; i++){
+    if (array[i] >= 10){
+      return false
+    }
+  } 
+return true; 
 
-function every() {
-
-}
+  }
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 //will go over in class
-function dominantDirection() {
-
-}
+function dominantDirection(str) {//"Hello!"
+  //create variable to point to string
+  let newStr = str; 
+  //create arrays to store ltr/rtl results
+  let ltr = [];
+  let rtl = []; 
+  //iterate through string copy
+  for (var i = 0; i < str.length; i++){
+    let scriptName = characterScript(newStr.charCodeAt(i));
+    // if scriptName is NOT null
+    if (scriptName !== null){
+      scriptName.direction === "ltr" ? ltr.push(scriptName.name): rtl.push(scriptName.name); 
+    }
+    
+  }
+    if (ltr.length > rtl.length){
+      return "ltr"; 
+    }else {
+}   
+        return "rtl"; 
+}; 
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////

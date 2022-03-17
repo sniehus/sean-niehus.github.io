@@ -49,22 +49,22 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(num) {
-
-var board = "";
-
-for (var x = 0; x <= num; x++) {
-  for (var y = 0; y <= num; y++) {
-    if (num % 2 == 0)
-      board += " ";
-    else
-      board += "#";
-  }
-  board += "\n";
-
-}
-return board;
-      
-};
+  
+    
+  var board = "";
+    
+    for (var y = 0; y < num; y++) {
+      for (var x = 0; x < num; x++) {
+        if ((x + y) % 2 == 0)
+          board += " ";
+        else
+          board += "#";
+      }
+      board += "\n";
+    }
+    console.log(board);
+          
+    };
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

@@ -63,7 +63,7 @@ var femaleCount = function(array) {
    
 
 var averageBalance = function(array){
-    var balance = reduce.filter(function(sum, current){
+    var balance = array.reduce(function(sum, current){
       if (current.hasOwnProperty("balance")){ 
       sum.push(sum + current[balance]); 
       }
@@ -79,7 +79,7 @@ var firstLetterCount = function(array){
     //create an output array
     var matches = _.filter(array, function(customer, letter){
     //set condition for value to be return true
-    return customer.name.charAt(0) === letter
+    return customer.name[0] === letter;
     });
     return matches.length;
 };
