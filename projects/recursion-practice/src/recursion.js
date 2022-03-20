@@ -526,31 +526,34 @@ var alternateSign = function(array, output = [], count = 1) {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str, string = ""){ {
+var numToText = function(string, output = ""){ 
   var nums = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
   //base
+  console.log(string);
+  console.log(output);
   //return when str length is 0
-  if (str.length === 0){
-    return string; 
+  if (string.length === 0){
+    return output; 
   }
   //recursive
   //determine if current index is a number
-    if (typeof str[0] === "number"){
+    if (isNaN(string[0]) === false && string[0] !== " ") {
       //if so replace with element from nums array
-      str =+ nums[str[0]];
+      output = output + nums[string[0]];
+      return numToText(string.slice(1), output)
       //recurse function
-      return numToText(str.slice(1), string);
+      
     }
     //else it's not a number
     else {
-      str += str[0]; 
+      output = output + string[0]; 
       //recurse function
-      return numToText(str.slice(0), string)
+      return numToText(string.slice(1), output)
     }
-    }
+    
 
 
-    }; 
+    };
   
   
 
