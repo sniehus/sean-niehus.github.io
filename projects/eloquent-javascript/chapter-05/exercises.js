@@ -21,7 +21,11 @@ Write a higher-order function loop that provides something like a for loop state
 giving it the current value. 
 Finally, it calls the update function to create a new value and starts from the beginning.
 */
-function loop(){
+function loop(start, test, update, body){
+  for(let value = start; i = test(value); value = update(value)){
+    body(value); 
+  }
+ 
   
 }
 

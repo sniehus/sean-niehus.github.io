@@ -310,16 +310,20 @@ var countOccurrence = function(array, inputValue, count = 0) {
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback, output=[]){
   //base
-   if (array.length === output.length){
+   if (array.length === 0){
     return output; 
    }
    else{
-    output.push(callback) 
-    return rMap(array, callback, output);
+    function callback(num){
+      output.push(num * 2); 
+      
+    }
+    callback(array[0]); 
+    return rMap(array.slice(1), callback, output);
     
    }
    
-}; 
+};
     
    
   
@@ -451,15 +455,20 @@ var letterTally = function(str, obj = {}) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list, array=[]) {
+var compress = function(list, array=[""]) {
   
-  if (list.length === 0){
+  if (list.length === 1){
     return array;
+  }
+  if (array[0] === ""){
+    array.push(list[0]);
+    
   }
     if (list[0] !== array[array.length - 1]){
       array.push(list[0]);
       
-    }return compress(list.splice(1), array);
+    }
+  return compress(list.splice(1), array);
 };
 
 // 32.**not required Augment every element in a list with a new value where each element is an array
