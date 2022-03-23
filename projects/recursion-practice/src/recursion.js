@@ -455,21 +455,25 @@ var letterTally = function(str, obj = {}) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list, array=[""]) {
-  
+var compress = function(list, array = []) {
+  console.log(list);
+  console.log(array);
   if (list.length === 1){
     return array;
   }
-  if (array[0] === ""){
+  if (array[0] === NaN){
     array.push(list[0]);
-    
+    return compress(list.slice(1), array);
   }
-    if (list[0] !== array[array.length - 1]){
+  if
+     (list[0] !== array[array.length - 1]){
       array.push(list[0]);
-      
+      return compress(list.slice(1), array);
     }
-  return compress(list.splice(1), array);
-};
+   else {
+     return compress(list.slice(1), array);
+   }
+    };
 
 // 32.**not required Augment every element in a list with a new value where each element is an array
 // itself.

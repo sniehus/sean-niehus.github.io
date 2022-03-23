@@ -60,28 +60,38 @@ var femaleCount = function(array) {
     
 
 
-   
-
-var averageBalance = function(array){
-    var balance = array.reduce(function(sum, current){
-      if (current.hasOwnProperty("balance")){ 
-      sum.push(sum + current[balance]); 
+   var averageBalance = function(array){
+    var sumBalance = _.filter(array, function(customer){
+      if (customer.hasOwnProperty("balance")){
+        return customer.balance; 
       }
-    }, []);
-    return balance[balance.length - 1] / balance.length; 
-     
+      var average = sumBalance.reduce((total, amount, index, array) => {
+        total += amount; 
+        if (index === array.length - 1){
+          return total.slice(1) * 1/array.length; 
+        } else {
+          return total; 
+      }
+      
+    });
+    return average; 
+  });
+};
+
 
     
-}
+    
 
 
-var firstLetterCount = function(array) {
-  var matches = _.filter(array, function(customer, letter){
-      return customer.name[0] === letter; 
 
-  }); 
-return matches.length;
-};
+
+  var firstLetterCount = function(array) {
+    var matches = _.filter(array, function(customer, letter){
+          return customer.name[0] === letter;  
+  
+    })
+  return matches.length;
+  };
 
 var friendFirstLetterCount = function(){}
 var friendsCount = function(){
@@ -90,26 +100,35 @@ var friendsCount = function(){
 //input: array and name/output: array
 var topThreeTags = function(){
 
+
 };//**Objective**: Find the three most common tags among all customers' associated tags
 
+  
+    
+
+
+
+ 
+
 var genderCount = function(array){
-    var genders = _.reduce(object, function(obj, customer){
+var genders = _.reduce(array, function(countObj, customer){
   //determine if the current customer gender exists as 
   //a key in the obj, if true, add the current name to the property's array
-  if (obj[customer.gender]){
-    obj[customer.gender] += 1;
+  if (countObj.hasOwnProperty(customer.gender)){
+    countObj[customer.gender] += 1;
   }
   //else it doesn't exist
   else {
   //create the key, initialize as an empty object and add the current name 
-    obj[customer.gender] = 1;
+    countObj[customer.gender] = 1;
     
   }
-  return genders; 
+return countObj; 
   
 }, {});
-
+return genders; 
 };
+
 
 
 

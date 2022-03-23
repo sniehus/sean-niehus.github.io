@@ -88,7 +88,6 @@ function arrayToList(array) {
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
 function listToArray(obj, output=[]) {
   //base
   if (obj.rest === null){
@@ -102,16 +101,20 @@ function listToArray(obj, output=[]) {
 
 }
 
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function prepend(array, value) {
-  let output = [];
-  for (var i = 0; i < array.length; i++){
-    output.unshift(array[i][value]);
+//Then add a helper function prepend, which takes an element and a list and creates 
+//a new list that adds the element to the front of the input list,
+function prepend(value, rest) {
+  let output = {
+    value: value,
+    rest: rest
   }
-  return output; 
+  
+  return output;
  
 }
 
@@ -119,22 +122,62 @@ function prepend(array, value) {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth(array, index ) {
-for (var i = 0; i < array.length; i++){
-  if (array[i] === index){
-    return array[i]; 
+function nth(list, index) {
+  //
+  ; 
+  if (index === 0){
+    return list.value; 
+    
   }
-  else {
-    return undefined; 
+  //recursion
+  else{
+    return nth(list, index - 1);
   }
-}
-}
+
+    
+  };
+  
+  
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function deepEqual(x, y) {
+  
+  //determine if x AND y are NOT OBJECTS
+  if (typeof x !== "object" && typeof y !== "object" ){
+    return x === y;
+  }
+  if (typeof x !== "object" || typeof y !== "object"){
+    return false;
+  }
+  //use the object.keys() method to create an array of keys for both values
+  let xKeys = Object.keys(x);//["a", "b"]
+  let yKeys = Object.keys(y);//["a", "b"]
+  //determine if the length of the arrays DONT MATCH
+  if (xKeys.length !== yKeys.length) {
+    return false; 
+  }
+  //iterate through xKeys
+    /*for (let i = 0; i < xKeys.length; i++){
+      if (!yKeys.includes(xKeys[i]) || !deepEqual(xKeys[i], y[xKeys[i]])){
+        return false; 
+      }
+     */
+      for (let key of xKeys) {
+        if (!yKeys.includes(key) || !deepEqual(x[key], y[key])) 
+        return false;
+      }   
+    
+  
+
+  return true; 
+  };
+  /*
+  function deepEqual(x, y) {
   //determine if x AND y are NOT OBJECTS
   if (typeof x !== "object" && typeof y !== "object" ){
     return x === y;
@@ -157,7 +200,7 @@ function deepEqual(x, y) {
     }
   return true; 
   };
-
+*/
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
