@@ -56,52 +56,125 @@ var femaleCount = function(array) {
         return youngest.name
  };
 
-    
-    
-
-
-   var averageBalance = function(array){
-    var sumBalance = _.filter(array, function(customer){
-      if (customer.hasOwnProperty("balance")){
-        return customer.balance; 
+ var averageBalance = function(array){
+  var results = [];
+  var removed = [];
+  var total = 0;
+   //iterate throuh input array
+    for (let i = 0; i < array.length; i++){
+      //look for customers with account key
+      if(array[i]["balance"]){
+        results.push(array[i].balance.slice(1));
+        
       }
-      var average = sumBalance.reduce((total, amount, index, array) => {
-        total += amount; 
-        if (index === array.length - 1){
-          return total.slice(1) * 1/array.length; 
-        } else {
-          return total; 
-      }
+    }
+      removed = results.map(function(result){
+        return result.replace(',', '');
+      });
       
-    });
-    return average; 
+      for(let i = 0; i < removed.length; i++){
+          total += parseFloat(removed[i]);
+          
+      };  
+  
+      
+  return total / removed.length; 
+}; 
+
+    
+var firstLetterCount = function(array, letter){
+  var results = [];
+  var count = [];
+for (let i = 0; i < array.length; i++){
+    //look for customers with name key
+    if(array[i]["name"]){
+      results.push(array[i].name);
+    }
+}
+  
+  results.map(function(result){
+    if (result[0].toUpperCase() === letter.toUpperCase()){
+      count.push(result);
+    }; 
+    
   });
+ 
+return count.length; 
+};
+
+var friendFirstLetterCount = function(customers, customer, letter){
+  var friendsList = [];
+  for (let i = 0; i < customers.length; i++){
+    if (customers[i].name === customer){
+       friendsList = customers[i].friends;   
+      }
+    var count = 0;
+   for (let i = 0; i < friendsList.length; i++){
+     if (friendsList[i].name[0].toUpperCase() === letter.toUpperCase()){
+       count += 1; 
+     }
+    
+   }
+    
+  }
+  return count; 
 };
 
 
-    
-    
-
-
-
-
-  var firstLetterCount = function(array) {
-    var matches = _.filter(array, function(customer, letter){
-          return customer.name[0] === letter;  
+var friendsCount = function(array, target){
+  var array = [];
+  var results = {}; 
+  //iterate throuh input array
+  var friendsList = customers.map(function(customer){
+    results = {"name": customer["name"], "friends": customer["friends"]};
+    array.push(results);
+    });
+return array;
+  var matches = [];
+  for (let i = 0; i < array.length; i++){
+    for (var key in array[i]){
+      for (let j = 0; j < array[i][friends][j].length; j++){
+        for (var key in array[i][friends][j]){
+          if (array[i][friends][j][name] === target){
+            matches.push(array[i][name]); 
+          }
+          
+        }
+      }
+    }
+  }
   
-    })
-  return matches.length;
-  };
-
-var friendFirstLetterCount = function(){}
-var friendsCount = function(){
-
-};//Find the customers' names that have a given customer's name in their friends list
-//input: array and name/output: array
-var topThreeTags = function(){
+};
 
 
-};//**Objective**: Find the three most common tags among all customers' associated tags
+
+var topThreeTags = function(array){
+  var results = [];
+    //iterate throuh input array
+    for (let i = 0; i < array.length; i++){
+      //look for customers with account key
+      if(array[i]["tags"]){
+        results.push(array[i].tags);
+      }
+    };
+   var flattened = results.flat();
+   var sorted = flattened.sort();
+  function getMax(sorted, n) {
+    var tmp = {}, tops = [];
+  
+    // create an object to count number of occurrances
+    sorted.forEach(function(item) {
+        tmp[item] = tmp[item] ? tmp[item]+1 : 1;
+    });
+  
+    // create an array of the sorted object properties
+    tops = Object.keys(tmp).sort(function(a, b) { return tmp[a] - tmp[b] });
+  
+    // Return last n elements in reverse order
+    return tops.slice(-(n));
+};
+return getMax(sorted, 3);
+}; 
 
   
     
